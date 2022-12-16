@@ -8,16 +8,11 @@ they actually are, but they are slower for all three providers so this
 still gives you an accurate picture about the order of the providers
 in terms of speed. Working on a fix!
 
-## Todo
+## Quickstart
 
-- [x] Create an Infura account
-- [x] Create an Alchemy account
-- [ ] Create a Quicknode account (not a priority since it's paid)
-- [ ] Get access to a premium Ankr account (again, not a priority but would be nice to have a level playing field since all other providers are paid or require an account)
-- [x] Setup some functions that ping the RPCs on different endpoints and return the results
-- [x] Create a table that compares the results
-- [ ] Fix the response time calcuating logic. All response times calculated with the current logic are showing up a bit slower than they actually are.
-- [ ] For some reason there are multiple requests going through instead of just one. Figure out why.
-- [ ] Add support for other networks.
-- [ ] Add support for other endpoints.
-- [ ] Run the test from different locations around the world and present an aggregate.
+1. Clone this repository
+1. Run `npm install` in the root directory
+1. Rename `.env.example` to `.env`
+1. Add your API keys
+    * For Chainstack add the full node identifier + API key: `nd-123-456-789.p2pify.com/API_KEY`
+1. Run `npm run dev` from your console, the page is now running on `http://localhost:3000/`
