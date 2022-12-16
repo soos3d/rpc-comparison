@@ -22,6 +22,7 @@ function App() {
   const alchemyProvider = useProvider('alchemy');
   const ankrProvider = useProvider('ankr');
   const infuraProvider = useProvider('infura');
+  const chainstackProvider = useProvider('chainstack');
   const { responseTime: alchemyResponseTime, refetch: refetchAlchemy } =
     useEndpointWithResponseTime(
       alchemyProvider as ethers.providers.Provider,
@@ -37,11 +38,17 @@ function App() {
       infuraProvider as ethers.providers.Provider,
       'getBlockNumber'
     );
+  const { responseTime: chainstackResponseTime, refetch: refetchChainstack } =
+    useEndpointWithResponseTime(
+      chainstackProvider as ethers.providers.Provider,
+      'getBlockNumber'
+    );
 
   const refetch = async () => {
     refetchAlchemy();
     refetchAnkr();
     refetchInfura();
+    refetchChainstack();
   };
 
   return (
@@ -70,6 +77,10 @@ function App() {
             <Tr>
               <Td>Infura</Td>
               <Td isNumeric>{infuraResponseTime}</Td>
+            </Tr>
+            <Tr>
+              <Td>Chainstack</Td>
+              <Td isNumeric>{chainstackResponseTime}</Td>
             </Tr>
           </Tbody>
         </Table>

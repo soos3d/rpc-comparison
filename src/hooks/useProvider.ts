@@ -4,9 +4,10 @@ import {
   createAlchemyProvider,
   createAnkrProvider,
   createInfuraProvider,
+  createChainstackProvider,
 } from '../utils';
 
-type RpcProvider = 'ankr' | 'alchemy' | 'infura';
+type RpcProvider = 'ankr' | 'alchemy' | 'infura' | 'chainstack';
 
 export const useProvider = (rpcProvider: RpcProvider) => {
   const [provider, setProvider] = useState<ethers.providers.Provider>();
@@ -21,6 +22,9 @@ export const useProvider = (rpcProvider: RpcProvider) => {
         break;
       case 'infura':
         setProvider(createInfuraProvider());
+        break;
+      case 'chainstack':
+        setProvider(createChainstackProvider());
         break;
       default:
         break;

@@ -16,6 +16,12 @@ export const createInfuraProvider = () => {
   );
 };
 
+export const createChainstackProvider = () => {
+  return new ethers.providers.JsonRpcProvider(
+    `https://${import.meta.env.VITE_CHAINSTACK}`
+  );
+};
+
 export interface EndpointWithTimeResponse {
   [key: string]: number;
   responseTime: number;
